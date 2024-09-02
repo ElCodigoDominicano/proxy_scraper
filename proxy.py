@@ -54,10 +54,11 @@ async def main():
     
     logger.info("Going to loop into a list of responses.")
     for x, response in enumerate(list_of_responses):
-        with open(f"proxy_pages/geonode-page-{x + 1}.json", "w") as json_file:
-            logger.info(f"Going to attempt to write json file -> {x + 1}")
+        file_num = x + 1
+        with open(f"proxy_pages/geonode-page-{file_num}.json", "w") as json_file:
+            logger.info(f"Going to attempt to write json file -> {file_num}")
             json_file.writelines(response)
-            logger.info(f"Wrote Json -> {x + 1}")
+            logger.info(f"Wrote Json -> {file_num}")
 
 if __name__ == "__main__":
     start = time.time()
