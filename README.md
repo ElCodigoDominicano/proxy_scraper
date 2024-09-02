@@ -1,2 +1,2 @@
 # proxy_scraper
-proxy scraper json file creator
+A simple asynchronous proxy scrapper which produces .json files.
