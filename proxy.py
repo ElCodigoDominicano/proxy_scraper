@@ -21,13 +21,11 @@ class CheckYourConnection(BaseException):
 
 async def connection(url: str) -> BeautifulSoup:
     """ Attempts to make a connection to a url
-    asynchronously, and RETURNS the soup from the
-    response."""
+    asynchronously, and RETURNS json response."""
     async with ClientSession() as session:
         try:
             async with session.get(url) as response:
-                soup = BeautifulSoup(await response.text(), "html.parser")
-                return soup
+                return await response.json()
         except ClientConnectionError:
             raise CheckYourConnection("Connection Failure")
     
