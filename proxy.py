@@ -25,7 +25,8 @@ async def connection(url: str) -> BeautifulSoup:
     async with ClientSession() as session:
         try:
             async with session.get(url) as response:
-                return await response.json()
+                soup = BeautifulSoup(await response.text(), "html.parser")
+                return soup
         except ClientConnectionError:
             raise CheckYourConnection("Connection Failure")
     
