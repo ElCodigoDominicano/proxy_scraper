@@ -9,7 +9,6 @@ import logging
 import asyncio
 
 from aiohttp import ClientSession, ClientResponse, ClientConnectionError
-from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
